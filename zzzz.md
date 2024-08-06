@@ -30,3 +30,10 @@ sessionid -create 발급
 
 login ModelForm 이 아닌 Form을 사용
 주는 정보와 생성하는 정보가 다름 
+
+
+
+로그인 기능 CRUD (R-사용자의 정보불러오기, U-사용자정보 업데이트)
+signup User Create
+login  session Create
+logout session Delete
