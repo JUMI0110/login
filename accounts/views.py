@@ -9,7 +9,7 @@ def signup(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('accounts:signup')
+            return redirect('accounts:login')
 
     else:
         form = CustomUserCreationForm()
@@ -29,7 +29,7 @@ def login(request):
         if form.is_valid():
             # login 함수 불러와서 사용 login(request, 유저정보)
             auth_login(request, form.get_user())
-            return redirect('accounts:login')
+            return redirect('articles:index')
     
     else:
         form = CustomAuthenticationForm()
