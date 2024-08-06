@@ -37,3 +37,10 @@ login ModelForm 이 아닌 Form을 사용
 signup User Create
 login  session Create
 logout session Delete
+
+
+
+decorators login_required
+로그인을 했는지 확인과 동시에 next인자 넣어줌 (?next=/url)
+@login_required 로그인 하지 않으면 함수 동작 X
+def detail():

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Article
 from .forms import ArticleForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -10,7 +11,7 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-
+@login_required
 def detail(request, id):
     article = Article.objects.get(id=id)
 
@@ -19,7 +20,7 @@ def detail(request, id):
     }
     return render(request, 'detail.html', context)
 
-
+@login_required
 def create(request):
     if request.method == 'POST':
         form = ArticleForm(request.POST)
