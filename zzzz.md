@@ -18,3 +18,15 @@ AUTH_USER_MODEL = "myapp.MyUser"
 sha -1: 암호화 해시 함수
 django -> sha256 
 password 만들 때 django만 알고있는 약간의 문자 첨가하여 암호화
+
+
+
+signup - create기능 
+login id,pw 입력시 검증 후 같다면 로그인 (key발급) create기능
+ -> 발급된 session key를 쿠키에 저장
+
+cookie 일정한작은정보 key=value로 이루어진 정보를 임시로 저장하는 공간
+sessionid -create 발급
+
+login ModelForm 이 아닌 Form을 사용
+주는 정보와 생성하는 정보가 다름 
