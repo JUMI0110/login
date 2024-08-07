@@ -5,7 +5,9 @@
     {% for article in articles %}
     <p>{{article.title}}</p>
     <p>{{article.user}}</p>
+    {% if user.is_authenticated %}
     <a href="{% url 'articles:detail' id=article.id %}">detail</a>
+    {% endif %}
     <hr>
     {% endfor %}
 
