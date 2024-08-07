@@ -12,9 +12,13 @@
         </div>
         {% if user == article.user %}
         <div class="card-footer">
-            <form action="{% url 'articles:delete' id=article.id %}" method="POST">
+            <form class="d-inline" action="{% url 'articles:delete' id=article.id %}" method="POST">
                 {% csrf_token %}
                 <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+            <form class="d-inline" action="{% url 'articles:update' id=article.id %}">
+                <input type="submit" value="Update" class="btn btn-warning">
+
             </form>
         </div>
         {% endif %}
