@@ -1,26 +1,32 @@
 {% extends 'base.html' %}
+{% load bootstrap5 %}
 
 {% block body %}
-    <h1>{{article.title}}</h1>
-    <p>{{article.content}}</p>
-    <p>{{article.user}}</p>
-    <hr>
+    <div class="card">
+        <div class="card-header">
+            {{article.user}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{article.title}}</h5>
+            <p class="card-text">{{article.content}}</p>
+        </div>
+    </div>
     <form action="{% url 'articles:comment_create' article_id=article.id %}" method="POST">
         {% csrf_token %}
-        {{form}}
-        <input type="submit">
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-primary">
     </form>
 
     <hr>
     {% for comment in article.comment_set.all %}
-        <li>
+        <div class="alert alert-light">
             {{comment.user}} - {{comment.content}}
             {% if request.user == comment.user %}
-                <form action="{% url 'articles:comment_delete' article_id=article.id id=comment.id %}" method="POST">
+                <form class="d-inline" action="{% url 'articles:comment_delete' article_id=article.id id=comment.id %}" method="POST">
                     {% csrf_token %}
-                    <input type="submit" value="delete">
+                    <input type="submit" value="delete" class="btn btn-danger btn-sm">
                 </form>
             {% endif %}    
-        </li>
+            </div>
     {% endfor %}
 {% endblock %}
