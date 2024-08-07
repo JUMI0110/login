@@ -4,7 +4,8 @@
 {% block body %}
     <div class="card">
         <div class="card-header">
-            {{article.user}}
+            <a href="{% url 'accounts:profile' username=article.user.username %}">{{article.user}}</a>
+            
         </div>
         <div class="card-body">
             <h5 class="card-title">{{article.title}}</h5>

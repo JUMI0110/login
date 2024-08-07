@@ -7,7 +7,8 @@
 
     <div class="card my-3">
         <div class="card-header">
-            {{article.user}}
+            <a href="{% url 'accounts:profile' username=article.user.username %}" class="text-decoration-none">{{article.user}}</a>
+            
         </div>
         <div class="card-body">
             <h5 class="card-title">{{article.title}}</h5>

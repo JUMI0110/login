@@ -44,3 +44,7 @@ decorators login_required
 로그인을 했는지 확인과 동시에 next인자 넣어줌 (?next=/url)
 @login_required 로그인 하지 않으면 함수 동작 X
 def detail():
+
+
+
+로그인한 계정이 아닌 다른계정의 댓글도 삭제할 수 없게 코드
