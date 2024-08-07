@@ -13,6 +13,14 @@
 
     <hr>
     {% for comment in article.comment_set.all %}
-        <li>{{comment.user}} - {{comment.content}}</li>
+        <li>
+            {{comment.user}} - {{comment.content}}
+            {% if request.user == comment.user %}
+                <form action="{% url 'articles:comment_delete' article_id=article.id id=comment.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="delete">
+                </form>
+            {% endif %}    
+        </li>
     {% endfor %}
 {% endblock %}

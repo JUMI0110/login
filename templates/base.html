@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="{% url 'articles:index' %}">home</a>
     <!-- django에서 user라는 변수를 자동으로 context에 넣어줌 -->
     {% if user.is_authenticated %}
     <a href="{% url 'accounts:logout' %} ">logout</a>
