@@ -18,3 +18,9 @@ class Article(models.Model):
     
     # 3. get_user_model
     # user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE) 
+
+
+class Comment(models.Model):
+    content = models.TextField()
+    article = models.ForeignKey(Article, on_delete=models.CASCADE) 
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
